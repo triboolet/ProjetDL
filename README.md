@@ -8,6 +8,8 @@ Pour cela, nous utilisons [Detectron2](https://github.com/facebookresearch/detec
 
 [CBNet] (pour Composite BackBone Network) est une récente architecture pour la détection d'objets à l'état de l'art sur le dataset COCO. L'idée est de modifier une partie des architectures déjà existantes : le réseau Backbone.
 
+![alt text](https://raw.githubusercontent.com/triboolet/ProjetDL/master/images/faster_rcnn.png "Faster RCNN")
+
 
 
 
