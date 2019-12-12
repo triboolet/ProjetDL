@@ -15,8 +15,18 @@ CBNet va donc remplacer ce backbone network par plusieurs backbones, afin d'amé
 
 ![alt text](https://raw.githubusercontent.com/triboolet/ProjetDL/master/images/cbnet.png "CBNet")
 
-Au lieu d'avoir un seul backbone, on a donc une suite de réseaux, les features utilisées par le reste de l'architecture étant celles données par le dernier backbone, baptisé "Lead BackBone". 
+Au lieu d'avoir un seul backbone, on a donc une suite de réseaux, les features utilisées par le reste de l'architecture étant celles données par le dernier backbone, baptisé "Lead BackBone". L'intérêt est ainsi double : non seulement on a de meilleurs performances grâce à l'ajout de plusieurs backbones, ce qui rend le tout plus puissant, mais en plus on peut toujours utiliser des modèles pré-entraînées, et faire un CBNet formé de plusieurs ResNet pré-entraînés, par exemple.
 
+![alt text](https://raw.githubusercontent.com/triboolet/ProjetDL/master/images/cbnet_archs.png "archs")
 
+Les auteurs du papier proposent plusieurs manières d'agencer un composite backbone : au final, lors des différents tests effectués, il apparaît que la première méthode, Adjacent Higher-Level Composition, donne les meilleurs résultats. De plus, une autre question se pose, celle du nombre de réseaux à mettre dans le composite backbone. 
 
+![alt text](https://raw.githubusercontent.com/triboolet/ProjetDL/master/images/cbnet_numbers.png "numbers")
 
+Après plusieurs tests, les auteurs conseillent de ne pas mettre plus de 3 réseaux, le gain en performance au-delà de ce seuil étant négligeable. 
+
+![alt text](https://raw.githubusercontent.com/triboolet/ProjetDL/master/images/cbnet_results.png "results")
+
+Enfin, cette table montre bien ce dont on parlait plus haut : les résultats montrent que CBNet est meilleur que l'état de l'art sur la détection d'objets, avec un gain significatif de plus d'un pourcent dans certains cas.
+
+A noter qu'avec un tel backbone viennent des désavantages, notamment celui de la vitesse d'inférence du modèle. Le papier le mentionne, et propose même une solution avec une version améliorée du CBNet plus rapide.
